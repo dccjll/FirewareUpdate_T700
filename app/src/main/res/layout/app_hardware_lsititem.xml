@@ -1,0 +1,31 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_vertical"
+    android:paddingTop="10dp"
+	android:paddingBottom="10dp"
+	android:paddingLeft="20dp"
+	android:paddingRight="20dp">
+
+	<TextView
+		android:id="@+id/firewareNameTextView"
+		android:layout_weight="1"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:text="固件名称"
+		android:textSize="12sp"
+		android:textColor="@android:color/holo_red_dark"
+		android:gravity="left"
+		android:layout_centerVertical="true"/>
+	<TextView
+		android:id="@+id/firewareVersionTextView"
+		android:layout_weight="1"
+		android:layout_width="wrap_content"
+		android:layout_height="30dp"
+		android:gravity="left"
+		android:text="固件版本号"
+		android:textSize="12sp"
+		android:textColor="@android:color/holo_red_dark"/>
+    
+</LinearLayout>

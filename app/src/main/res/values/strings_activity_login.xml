@@ -1,0 +1,13 @@
+<resources>
+
+    <!-- Strings related to login -->
+    <string name="prompt_mobile">请输入手机号码</string>
+    <string name="prompt_password">请输入密码</string>
+    <string name="action_sign_in">登录</string>
+    <string name="action_sign_in_short">Sign in</string>
+
+    <string name="error_invalid_mobile">手机号码格式不正确</string>
+    <string name="error_invalid_password">密码长度不够</string>
+    <string name="error_incorrect_password">手机号码或密码不正确</string>
+    <string name="error_field_required">不能为空</string>
+</resources>
