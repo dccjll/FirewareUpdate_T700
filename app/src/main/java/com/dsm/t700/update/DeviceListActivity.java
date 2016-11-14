@@ -744,7 +744,7 @@ public class DeviceListActivity extends Activity implements AdapterView.OnItemCl
         LogUtil.d(TAG, "delpath=" + delpath);
         File file = new File(delpath);
         if(!file.exists()){
-            LogUtil.d(TAG, "路径不存在, delpath=" + delpath);
+            LogUtil.d(TAG, "deleteAllFilesAtPath,路径不存在, delpath=" + delpath);
             return;
         }
         // 当且仅当此抽象路径名表示的文件存在且 是一个目录时，返回 true

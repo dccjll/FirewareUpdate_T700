@@ -35,6 +35,12 @@ public class AssetsCopyer {
     public static void copyFileFromAssets(Context context, String fileDirPath, String filename, String filelocalpath) {
         try {
             InputStream inputStream = context.getAssets().open(fileDirPath + "/" + filename);
+            File destFile = new File(filelocalpath);
+            if(!destFile.exists()){
+                if(!destFile.mkdirs()){
+                    return;
+                }
+            }
             OutputStream outputStream = new FileOutputStream(new File(filelocalpath, filename));
 
             byte[] buffer = new byte[1024];
