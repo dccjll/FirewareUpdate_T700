@@ -724,16 +724,18 @@ public class DeviceListActivity extends Activity implements AdapterView.OnItemCl
 
                 @Override
                 public void run() {
-                    LogUtil.d(TAG, "找到附近的设备,mac=" + device.getAddress());
-                    boolean containsDevice = false;
-                    for (BluetoothDevice _device : mBluetoothDeviceList) {
-                        if (_device.getAddress().equals(device.getAddress())) {
-                            containsDevice = true;
+                    synchronized (TAG){
+                        LogUtil.d(TAG, "找到附近的设备,mac=" + device.getAddress());
+                        boolean containsDevice = false;
+                        for (BluetoothDevice _device : mBluetoothDeviceList) {
+                            if (_device.getAddress().equals(device.getAddress())) {
+                                containsDevice = true;
+                            }
                         }
-                    }
-                    if (!containsDevice) {
-                        mBluetoothDeviceList.add(device);
-                        deviceListManageHandler.obtainMessage(HANDLER_FOUND_NEW_DEVICE).sendToTarget();
+                        if (!containsDevice) {
+                            mBluetoothDeviceList.add(device);
+                            deviceListManageHandler.obtainMessage(HANDLER_FOUND_NEW_DEVICE).sendToTarget();
+                        }
                     }
                 }
             }).start();
