@@ -108,6 +108,7 @@ public class DeviceListActivity extends Activity implements AdapterView.OnItemCl
         }
     };
 
+    private static boolean isUpdateAdapter = false;
     private final static int HANDLER_FOUND_NEW_DEVICE = 0x0001;
     private final static int HANDLER_FOUND_NEW_FIREWARE = 0x0002;
     private static class DeviceListManageHandler extends  Handler{
@@ -116,6 +117,7 @@ public class DeviceListActivity extends Activity implements AdapterView.OnItemCl
             switch (msg.what) {
                 case HANDLER_FOUND_NEW_DEVICE:
                     mDeviceListAdapter.notifyDataSetChanged();
+                    isUpdateAdapter = false;
                     break;
                 case HANDLER_FOUND_NEW_FIREWARE:
                     firewareNameAdapter.notifyDataSetChanged();
@@ -652,21 +654,30 @@ public class DeviceListActivity extends Activity implements AdapterView.OnItemCl
 
     @Override
     protected void onResume() {
-        super.onResume();
         DfuServiceListenerHelper.registerProgressListener(this, dsmDfuProgressListenerAdapter);
         startScan();
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(BluetoothLeManage.ACTION_BLE_ERROR);
         intentFilter.addAction(BluetoothLeManage.ACTION_WRITTEN_SUCCESS);
         registerReceiver(firewareUpdateBLEReceiver, intentFilter);
+        super.onResume();
+//        DfuServiceListenerHelper.registerProgressListener(this, dsmDfuProgressListenerAdapter);
+//        startScan();
+//        IntentFilter intentFilter = new IntentFilter();
+//        intentFilter.addAction(BluetoothLeManage.ACTION_BLE_ERROR);
+//        intentFilter.addAction(BluetoothLeManage.ACTION_WRITTEN_SUCCESS);
+//        registerReceiver(firewareUpdateBLEReceiver, intentFilter);
     }
 
     @Override
     protected void onPause() {
-        super.onPause();
         DfuServiceListenerHelper.unregisterProgressListener(this, dsmDfuProgressListenerAdapter);
         stopScan();
         unregisterReceiver(firewareUpdateBLEReceiver);
+        super.onPause();
+//        DfuServiceListenerHelper.unregisterProgressListener(this, dsmDfuProgressListenerAdapter);
+//        stopScan();
+//        unregisterReceiver(firewareUpdateBLEReceiver);
     }
 
     @Override
@@ -726,6 +737,10 @@ public class DeviceListActivity extends Activity implements AdapterView.OnItemCl
                 public void run() {
                     synchronized (TAG){
                         LogUtil.d(TAG, "找到附近的设备,mac=" + device.getAddress());
+                        if(isUpdateAdapter){
+                            LogUtil.d(TAG, "isUpdateAdapter");
+                            return;
+                        }
                         boolean containsDevice = false;
                         for (BluetoothDevice _device : mBluetoothDeviceList) {
                             if (_device.getAddress().equals(device.getAddress())) {
@@ -734,6 +749,7 @@ public class DeviceListActivity extends Activity implements AdapterView.OnItemCl
                         }
                         if (!containsDevice) {
                             mBluetoothDeviceList.add(device);
+                            isUpdateAdapter = true;
                             deviceListManageHandler.obtainMessage(HANDLER_FOUND_NEW_DEVICE).sendToTarget();
                         }
                     }
