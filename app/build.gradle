@@ -31,5 +31,5 @@ dependencies {
     compile 'no.nordicsemi.android:dfu:0.6.2'
     compile 'com.google.android.gms:play-services-appindexing:8.4.0'
     compile 'com.yolanda.nohttp:nohttp:1.0.2'
-    compile(name:'BluetoothLELibrary-release-20160823-1805', ext:'aar')
+    compile(name:'BluetoothLELibrary-release-20161128-1116', ext:'aar')
 }
