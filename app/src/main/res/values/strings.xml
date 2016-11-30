@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">FirewareUpdate_T700</string>
+    <string name="versionDesc">
+        当前版本：v1.0\n\n\n
+        版本更新记录\n\n
+        \t\t\t\t版本号：v1.0\n
+        \t\t\t\t更新时间：2016-11-3 10:25\n
+        \t\t\t\t更新内容：\n
+        \t\t\t\t1.修复固件更新失败后设备列表无法动刷新问题\n
+        \t\t\t\t2.添加版本更新日志\n
+    </string>
+    <string name="scanDevice">扫描设备</string>
+    <string name="stopDevice">停止扫描</string>
+    <string name="versionRecord">版本记录</string>
 </resources>

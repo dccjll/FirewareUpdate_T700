@@ -26,6 +26,10 @@ public class FirewareUpdateBLEReceiver extends BroadcastReceiver{
     @Override
     public void onReceive(Context context, Intent intent) {
         if(BluetoothLeManage.ACTION_BLE_ERROR.equalsIgnoreCase(intent.getAction())){
+            if(intent.getExtras() == null){
+                LogUtil.d(tag, "intent.getExtras()=null");
+                return;
+            }
             String error = intent.getExtras().getString(BluetoothLeManage.ACTION_BLE_ERROR);
             if(error == null || error.equalsIgnoreCase("null")){
                 LogUtil.d(tag, "错误广播消息,没有消息体");

@@ -63,8 +63,9 @@ public class DsmDfuProgressListenerAdapter extends DfuProgressListenerAdapter{
 	@Override
 	public void onDfuAborted(final String deviceAddress) {
 		LogUtil.d(TAG , "onDfuAborted");
-		ViewUtil.closeDialog(dsmProgressDialog);
-		ViewUtil.printLogAndTips(context, "固件升级失败");
+//		ViewUtil.closeDialog(dsmProgressDialog);
+//		ViewUtil.printLogAndTips(context, "固件升级失败");
+		progressHandler.obtainMessage(DeviceListActivity.HANDLER_PROGRESS_ERROR, "onDfuAborted").sendToTarget();
 	}
 
 	@Override
@@ -76,7 +77,8 @@ public class DsmDfuProgressListenerAdapter extends DfuProgressListenerAdapter{
 	@Override
 	public void onError(final String deviceAddress, final int error, final int errorType, final String message) {
 		LogUtil.d(TAG , "onError");
-		ViewUtil.closeDialog(dsmProgressDialog);
-		ViewUtil.printLogAndTips(context, "固件升级失败");
+//		ViewUtil.closeDialog(dsmProgressDialog);
+//		ViewUtil.printLogAndTips(context, "固件升级失败");
+		progressHandler.obtainMessage(DeviceListActivity.HANDLER_PROGRESS_ERROR, "onError").sendToTarget();
 	}
 }

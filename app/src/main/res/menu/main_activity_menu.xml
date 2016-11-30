@@ -2,9 +2,9 @@
 
     <!-- Settings, should always be in the overflow -->
     <item android:id="@+id/action_settings_scandevice"
-        android:title="扫描设备"
-        android:showAsAction="never" />
+        android:title="@string/scanDevice"/>
     <item android:id="@+id/action_settings_stopscan"
-        android:title="停止扫描"
-        android:showAsAction="never" />
+        android:title="@string/stopDevice"/>
+    <item android:id="@+id/action_settings_version"
+        android:title="@string/versionRecord"/>
 </menu>

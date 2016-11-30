@@ -35,6 +35,8 @@ import com.dsm.t700.update.dfu.DfuService;
 import com.dsm.t700.update.dfu.DsmDfuProgressListenerAdapter;
 import com.yolanda.nohttp.NoHttp;
 
+import junit.runner.Version;
+
 import java.io.File;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -437,7 +439,7 @@ public class DeviceListActivity extends Activity implements AdapterView.OnItemCl
     private void selectDeviceType(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("选择固件类型");
-        String[] types =  new String[]{"小滴锁", "门禁", "门禁试开"};
+        String[] types =  new String[]{"小滴锁升级", "门禁升级", "门禁试开"};
         builder.setItems(
                 types,
                 new DialogInterface.OnClickListener() {
@@ -707,6 +709,8 @@ public class DeviceListActivity extends Activity implements AdapterView.OnItemCl
             case R.id.action_settings_stopscan:
                 stopScan();
                 break;
+            case R.id.action_settings_version:
+                startActivity(new Intent(this, VersionActivity.class));
             default:
                 super.onOptionsItemSelected(item);
         }
@@ -714,6 +718,7 @@ public class DeviceListActivity extends Activity implements AdapterView.OnItemCl
     }
 
     private void startScan() {
+        LogUtil.d(TAG, "startScan,isRunningScan="+ isRunningScan);
         if (!isRunningScan) {
             isRunningScan = true;
             mBluetoothDeviceList.clear();

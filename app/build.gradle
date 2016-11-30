@@ -28,8 +28,9 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile(name: 'BluetoothLELibrary-release-20161128-1116', ext: 'aar')
     compile 'no.nordicsemi.android:dfu:0.6.2'
-    compile 'com.google.android.gms:play-services-appindexing:8.4.0'
+//    compile 'com.google.android.gms:play-services-appindexing:9.8.0'
     compile 'com.yolanda.nohttp:nohttp:1.0.2'
-    compile(name:'BluetoothLELibrary-release-20161128-1116', ext:'aar')
+    compile 'com.android.support:appcompat-v7:22.2.1'
 }
