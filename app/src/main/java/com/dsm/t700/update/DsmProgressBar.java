@@ -42,7 +42,7 @@ public class DsmProgressBar {
         //设置ProgressDialog的最大进度
         dialog.setMax(max);
         //设置ProgressDialog 的一个Button
-        dialog.setButton("确定", submitListener);
+//        dialog.setButton("确定", submitListener);
         //设置ProgressDialog 是否可以按退回按键取消
         dialog.setCancelable(cancelable);
         //显示
