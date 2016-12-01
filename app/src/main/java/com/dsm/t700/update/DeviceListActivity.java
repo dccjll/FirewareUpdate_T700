@@ -372,21 +372,21 @@ public class DeviceListActivity extends Activity implements AdapterView.OnItemCl
 //            return;
 //        }
         mSelectedBluetoothDevice = mDeviceListAdapter.getBluetoothDeviceList().get(position);
-        /**
-         * 集成模式开始
-         */
+
         String deviceName = mSelectedBluetoothDevice.getName();
         if(deviceName.startsWith("l_") || deviceName.startsWith("L_") || deviceName.equalsIgnoreCase("LockDfu")){//是短设备，直接进入固件更新模式
             startUpdateFireware(true, mSelectedBluetoothDevice.getAddress());
             return;
         }
-        //是长设备,需要发送固件更新命令进入更新模式，先选择设备类型，目前门禁设备与锁设备进入更新模式的命令不一样
-        selectDeviceType();
         /**
          * 集成模式开始
          */
-//        /**
-//         * 生产模式开始
+        //是长设备,需要发送固件更新命令进入更新模式，先选择设备类型，目前门禁设备与锁设备进入更新模式的命令不一样
+        selectDeviceType();
+        /**
+         * 集成模式结束
+         */
+//         /** 生产模式开始
 //         */
 //        startUpdateFireware(true, mSelectedBluetoothDevice.getAddress());
 //        /**

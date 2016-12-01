@@ -1,9 +1,25 @@
 <resources>
     <string name="app_name">FirewareUpdate_T700</string>
     <string name="versionDesc">
-        当前版本：v1.2\n\n\n
+        当前版本：v1.2.2\n\n\n
 
         版本更新记录\n\n
+
+        \t\t\t\t版本号：v1.2.3\n
+        \t\t\t\t更新时间：2016-12-01 17:37\n
+        \t\t\t\t更新内容：\n
+        \t\t\t\t1.修改几个固件\n\n
+        \t\t\t\t2.合并生产模式\n\n
+
+        \t\t\t\t版本号：v1.2.2\n
+        \t\t\t\t更新时间：2016-12-01 15:06\n
+        \t\t\t\t更新内容：\n
+        \t\t\t\t1.新增固件S800_FPA_app20160704\n\n
+
+        \t\t\t\t版本号：v1.2.1\n
+        \t\t\t\t更新时间：2016-12-01 11:00\n
+        \t\t\t\t更新内容：\n
+        \t\t\t\t1.固件S7_003_app20161130替换为S7_003_app20161201\n\n
 
         \t\t\t\t版本号：v1.2\n
         \t\t\t\t更新时间：2016-11-30 17:23\n
